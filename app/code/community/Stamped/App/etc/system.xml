@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <tabs>
+    <stamped_myconf>
+      <label>Stamped.io</label>
+      <sort_order>500</sort_order>
+    </stamped_myconf>
+  </tabs>
+
+  <sections>
+    <stamped_app module="stamped">
+      <label>Stamped.io Reviews</label>
+      <tab>stamped_myconf</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>1</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <default_config_group translate="label">
+          <label>Stamped Settings</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_store>0</show_in_store>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <comment>
+            <![CDATA[
+                  <p>Stamped.io allows you to automatically send emails to your customers requesting for reviews of their recent purchase with you.</p>
+                  <p>Edit the Settings by selecting store view from the "<strong>Current Configuration Scope</strong>" dropdown on the top of the left sidebar.</p>
+                ]]>
+          </comment>
+        </default_config_group>
+
+        <stamped_app_settings_group translate="label">
+          <label>Settings</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>2</sort_order>
+          <show_in_store>1</show_in_store>
+          <show_in_default>0</show_in_default>
+          <show_in_website>0</show_in_website>
+          <comment>
+            <![CDATA[
+                  <p>Please enter the following API Public & Private Key, you can grab the keys from your Stamped.io Profile's page here: <a href="https://go.stamped.io/v2/#/settings/api">https://go.stamped.io/v2/#/settings/api</a></p>
+                  ]]>
+          </comment>
+          <fields>
+            <stamped_dashboard>
+              <label>Access Stamped.io Dashboard: </label>
+              <frontend_type>button</frontend_type>
+              <frontend_model>
+                stamped_app/adminhtml_system_config_form_accessdashboard
+              </frontend_model>
+              <sort_order>0</sort_order>
+              <show_in_store>1</show_in_store>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+            </stamped_dashboard>
+            <stamped_publickey>
+              <label>API Public Key</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>1</sort_order>
+              <comment>
+              </comment>
+              <show_in_store>1</show_in_store>
+              <show_in_website>0</show_in_website>
+              <show_in_default>0</show_in_default>
+            </stamped_publickey>
+            <stamped_apisecretkey>
+              <label>API Private Key</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>2</sort_order>
+              <comment>
+              </comment>
+              <show_in_store>1</show_in_store>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+            </stamped_apisecretkey>
+            <stampedapi_storeurl>
+              <label>Store URL</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>3</sort_order>
+              <comment>
+                <![CDATA[
+                              This URL should match the one provided in your Stamped.io account
+                              ]]>
+              </comment>
+              <show_in_store>1</show_in_store>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+            </stampedapi_storeurl>
+            <enable_stamped_widget>
+              <label>Show reviews widget in product page</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <enabled>1</enabled>
+              <sort_order>4</sort_order>
+              <comment>
+                <![CDATA[
+                   Show reviews widget in product page
+                ]]>
+              </comment>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enable_stamped_widget>
+            <stamped_order_status_trigger translate="label">
+              <label>Order status to trigger Review Requests Emails</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>4</sort_order>
+              <comment>
+                <![CDATA[
+                              Set the order statuses that will trigger the review requests to be sent, example of commonly used statuses are "Complete", "Shipped," "Pending," or "Received.". Seperate multiple status with comma e.g. "Complete, Shipped"
+                              ]]>
+              </comment>
+              <show_in_store>1</show_in_store>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+            </stamped_order_status_trigger>
+          </fields>
+        </stamped_app_settings_group>
+
+        <stamped_app_import_group translate="label">
+          <label>History Orders Import</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>3</sort_order>
+          <show_in_store>1</show_in_store>
+          <show_in_default>0</show_in_default>
+          <show_in_website>0</show_in_website>
+          <comment>
+          </comment>
+
+          <fields>
+            <import_orders_history translate="label">
+              <label>
+                <![CDATA[
+                              Import your existing orders history up to 6 months to Stamped.io. <br /><br /><i>If you need to import orders that is back-dated more than 6 months, please email us at hello@shopry.com</i>
+                              ]]>
+              </label>
+              <frontend_type>button</frontend_type>
+              <frontend_model>
+                stamped_app/adminhtml_system_config_form_importbutton
+              </frontend_model>
+              <sort_order>3</sort_order>
+              <show_in_store>1</show_in_store>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+              <comment>
+              </comment>
+            </import_orders_history>
+            <sync_product_history>
+              <label>Sync Products to Stamped.io : </label>
+              <frontend_type>button</frontend_type>
+              <frontend_model>
+                stamped_app/adminhtml_system_config_form_syncproductbutton
+              </frontend_model>
+              <sort_order>5</sort_order>
+              <show_in_store>1</show_in_store>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+            </sync_product_history>
+          </fields>
+        </stamped_app_import_group>
+        <stamped_app_cache_group translate="label">
+          <label>Stamped.io Magento Cache</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>7</sort_order>
+          <show_in_store>1</show_in_store>
+          <show_in_default>0</show_in_default>
+          <show_in_website>0</show_in_website>
+          <comment>
+          </comment>
+
+          <fields>
+            <enable_stamped_cache>
+              <label>Enable Stamped.io reviews cache</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <enabled>1</enabled>
+              <sort_order>3</sort_order>
+              <comment>
+                <![CDATA[
+                   When enabled, reviews will be cached in Magento's database and new reviews will only be fetched after 24 hours. You can also clear cache to fetch new reviews. 
+                ]]>
+              </comment>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enable_stamped_cache>
+            
+            <clear_cache_history>
+              <label>Clear Cached Reviews : </label>
+              <frontend_type>button</frontend_type>
+              <frontend_model>
+                stamped_app/adminhtml_system_config_form_clearcachebutton
+              </frontend_model>
+              <sort_order>7</sort_order>
+              <show_in_store>1</show_in_store>
+              <show_in_default>0</show_in_default>
+              <show_in_website>0</show_in_website>
+            </clear_cache_history>
+          </fields>
+        </stamped_app_cache_group>
+      </groups>
+    </stamped_app>
+  </sections>
+</config>

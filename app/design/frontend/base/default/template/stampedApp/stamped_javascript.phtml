@@ -1,0 +1,12 @@
+<script>
+    function myInit(){
+         if(!window.location.href.indexOf("onepage") > -1) {
+        StampedFn.init({
+            apiKey: '<?php echo $this->getApiPublicKey(); ?>',
+            storeUrl: '<?php echo $this->getStampedApiStoreUrl(); ?>'
+        });
+            }
+    }
+    </script>
+<script async onload="myInit()" type="text/javascript" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn-stamped-io.azureedge.net/files/widget.min.css">

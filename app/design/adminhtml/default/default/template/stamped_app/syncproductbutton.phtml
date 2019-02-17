@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function syncProductToStamped() {
+        new Ajax.Request('<?php echo Mage::helper('adminhtml')->getUrl('stamped_app/adminhtml_stamped/syncProduct') ?>', {
+            method:     'get',
+            parameters: {
+                "store" : "<?php echo Mage::app()->getRequest()->getParam('store', 0); ?>"
+            },
+            onComplete: function(transport){
+               if (transport.responseText == 1){
+                    var html = '<ul class="messages"><li class="success-msg"><ul><li>' + 'Your products have been imported to Stamped.io successfully.' + '</li></ul></li></ul>';
+                    $('messages').update(html);
+                } 
+                else {
+                    var html = '<ul class="messages"><li class="error-msg"><ul><li>' + transport.responseText + '</li></ul></li></ul>';
+                    $('messages').update(html);    
+                }
+            }
+        });
+    }
+    //]]>
+</script>
+
+<?php 
+    echo $this->getLayout()->createBlock('adminhtml/widget_button')
+            ->setData(array(
+            'id'        => 'sync_product_button',
+            'label'     => $this->helper('adminhtml')->__('Sync'),
+            'onclick'   => 'javascript:syncProductToStamped(); return false;'
+        )) -> _toHtml(); 
+?> 

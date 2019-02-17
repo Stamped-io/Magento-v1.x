@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+
+  <catalog_product_view>
+    <reference name="alert.urls">
+      <block type="stamped_app/stampedapp" name="stamped.reviews.badge" as="stamped-reviews-badge" template="stampedApp/review_badge.phtml"></block>
+    </reference>
+
+    <reference name="content">
+      <block type="stamped_app/stampedapp" name="stamped.reviews.widget" as="stamped-reviews-widget" template="stampedApp/review_widget.phtml" after="product.info"></block>
+    </reference>
+
+    <reference name="product.info">
+      <block type="stamped_app/stampedapp" name="stamped.reviews" as="stamped-reviews" template="stampedApp/review_widget2.phtml"/>
+    </reference>
+  </catalog_product_view>
+
+  <default>
+    <reference name="before_body_end">
+      <block type="stamped_app/stampedapp" as="stamped-js" template="stampedApp/stamped_javascript.phtml" name="stamped.js">
+      </block>
+    </reference>
+
+    <reference name="content">
+      <block type="cms/block" name="stamped" as="stamped">
+        <block type="stamped_app/stampedapp" name="stamped.badge" as="stamped-badge" template="stampedApp/review_badge.phtml"/>
+        <block type="stamped_app/stampedapp" name="stamped.reviews" as="stamped-reviews" template="stampedApp/reviews.phtml"/>
+      </block>
+    </reference>
+  </default>
+</layout>
