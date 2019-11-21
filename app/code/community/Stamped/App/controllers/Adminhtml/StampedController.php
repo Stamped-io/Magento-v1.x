@@ -1,6 +1,11 @@
 <?php
 class Stamped_App_Adminhtml_StampedController extends Mage_Adminhtml_Controller_Action
 {
+    protected function _isAllowed()
+    {
+        return true;
+    }
+
     public function importOrdersAction() {  
         try {
             $mycurrent_store;
@@ -222,10 +227,10 @@ class Stamped_App_Adminhtml_StampedController extends Mage_Adminhtml_Controller_
                              );
                             array_push($pro_data,$data);
                         }
-                        //echo $jsonData = Mage::helper('core')->jsonEncode($pro_data);  
+
                         if (count($pro_data) > 0) 
                         {
-                           echo $outputLog=Stamped_App_ApiStampedClient::POST_PRODUCTDATA($pro_data, Mage::app()->getStore()); 
+                           Stamped_App_ApiStampedClient::POST_PRODUCTDATA($pro_data, Mage::app()->getStore());
                         }
                     } catch (Exception $ex) {
                         Mage::app()->getResponse()->setBody($e->getMessage());

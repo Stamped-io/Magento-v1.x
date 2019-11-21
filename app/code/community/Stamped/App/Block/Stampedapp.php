@@ -21,7 +21,7 @@ class Stamped_App_Block_Stampedapp extends Mage_Core_Block_Template
     {
     	$this->setData('product', $product);
     	$_product = $this->getReviewsProduct();
-    	echo $_product->getName();
+    	print_r($_product->getName());
     }
 
     public function getReviewsProduct()

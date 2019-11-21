@@ -21,5 +21,3 @@ class Stamped_App_Block_Adminhtml_System_Config_Form_Importbutton extends Mage_A
         return $this->_toHtml();
     }
 }
-
-?>
