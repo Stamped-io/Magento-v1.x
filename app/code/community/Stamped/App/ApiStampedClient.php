@@ -48,9 +48,11 @@ class Stamped_App_ApiStampedClient
 			{
 				$products_data['productUrl'] = $full_product_info->getUrlInStore(array('_store' => $orderData->getStoreId()));
 				$products_data['productImageUrl'] = $full_product_info->getImageUrl();
+				$products_data['productSku'] = $full_product_info->getSku();
 			} catch(Exception $e) {}
 			
 			$products_data['productPrice'] = $product->getPrice();
+
 
 			$productsdata_arr[] = $products_data;
 		}
@@ -219,12 +221,10 @@ class Stamped_App_ApiStampedClient
 				return $result;
 			}
 
-			Mage::log('Failed execute API Get Widget. Error: '.$ex);
-
 			return;
 
-		}catch (Exception $ex) {
-            Mage::log('Failed execute API Get Widget. Error: '.$ex);
+		} catch (Exception $ex) {
+            Mage::log('Failed execute API Get Widget. Error: '.$ex->getMessage());
 
 			return;
         }
